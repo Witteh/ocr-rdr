@@ -18,7 +18,7 @@ allowedResolutions = [
 
 path = os.path.abspath(__file__.replace("main.py", ""))
 tempPath = path + "\\temp"
-ouputPath = path + "\\output"
+outputPath = path + "\\output"
 
 
 def getScreenResolution():
@@ -68,7 +68,7 @@ def scaleImage(path):
 def main():
     screenResolution = getScreenResolution()
     os.makedirs(tempPath, exist_ok=True)
-    os.makedirs(ouputPath, exist_ok=True)
+    os.makedirs(outputPath, exist_ok=True)
     if(screenResolution != -1):
         print("Program Started, waiting 10 seconds for you to tab into the game")
         time.sleep(10)
@@ -76,7 +76,7 @@ def main():
         while(True):
             id = getItemIdFromOCR(screenResolution)
             if(id != None and id != ""):
-                screenShotPath = ouputPath + "\\" + id + ".png"
+                screenShotPath = outputPath + "\\" + id + ".png"
                 if(not (os.path.exists(screenShotPath))):
                     print("Found item id: " + id + "\nTaking Screenshot")
                     fullScreenCapture(screenShotPath, screenResolution)
