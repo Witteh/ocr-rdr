@@ -12,7 +12,7 @@ from pynput.keyboard import Controller, Key
 keyboard = Controller()
 reader = easyocr.Reader(["en"], gpu=True)
 allowedResolutions = [
-    [2560, 1440, [0, 50, 2560, 75]],
+    [2560, 1440, [0, 50, 2560, 95]],
     [1920, 1080, [0, 25, 1920, 90]]
 ]
 
@@ -45,7 +45,7 @@ def getItemIdFromOCR(screenResolution):
                              ))
         text = readText(tempPath + "\\ocr.png")[0][1]
         return re.search("([0-9]+)", text).group()
-    except:
+    except Exception as e:
         return ""
 
 
@@ -83,7 +83,10 @@ def main():
                 else:
                     print("Screenshot of item " + id + " already exists")
             keyboard.press(Key.right)
-            time.sleep(1.25)
+            time.sleep(0.05)
+            keyboard.release(Key.right)
+            print("Waiting for next item")
+            time.sleep(0.05)
     else:
         print("Unsupported Resolution")
         print("Supported Resolutions: " + str(allowedResolutions))
