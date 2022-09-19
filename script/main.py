@@ -71,7 +71,7 @@ def main():
     os.makedirs(outputPath, exist_ok=True)
     if(screenResolution != -1):
         print("Program Started, waiting 10 seconds for you to tab into the game")
-        time.sleep(10)
+        # time.sleep(10)
         print("Started Capture")
         while(True):
             id = getItemIdFromOCR(screenResolution)
@@ -85,7 +85,7 @@ def main():
             keyboard.press(Key.right)
             time.sleep(0.05)
             keyboard.release(Key.right)
-            print("Waiting for next item")
+            print("\n\nWaiting for next item\n\n")
             time.sleep(0.05)
     else:
         print("Unsupported Resolution")
