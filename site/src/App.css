@@ -1,0 +1,45 @@
+body {
+  background-color: #181a1b;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+.controls-container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.image-container {
+  width: 100%;
+  height: 90%;
+}
+
+.image-container > img {
+  height: 100%;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  font-size: larger;
+}
+button {
+  width: fit-content;
+  height: 100%;
+}
+h1 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
