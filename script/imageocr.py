@@ -29,19 +29,19 @@ def getIdFromResult(result):
     accuracy = result[2]
     desiredAccuracy = 0.25
     if (str.lower("id:") in str.lower(text)):
-        if (accuracy > desiredAccuracy):
+        if (accuracy >= desiredAccuracy):
             id = [int(i) for i in text.split() if i.isdigit()]
             if(len(id) > 0):
                 return id[0]
             else:
                 updatedText = text.replace("G", "6").replace(
-                    "Q", "0").replace("O", "0").replace("E", "6")
+                    "Q", "0").replace("O", "0").replace("E", "6")  # ocr doesn't like rdr font, so we replace some characters
                 id = [int(i) for i in updatedText.split() if i.isdigit()]
                 if(len(id) > 0):
                     return id[0]
                 return -1
     else:
-        if (accuracy > desiredAccuracy):
+        if (accuracy >= desiredAccuracy):
             id = [int(i) for i in text.split() if i.isdigit()]
             if(len(id) > 0):
                 return id[0]
