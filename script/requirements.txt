@@ -1,4 +1,4 @@
-easyocr==1.4.2 #pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+easyocr==1.6.2 #pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
 Pillow==9.2.0
 PyAutoGUI==0.9.53
 pynput==1.7.6
