@@ -8,8 +8,8 @@ from pynput.keyboard import Controller, Key
 
 keyboard = Controller()
 path = os.path.abspath(__file__.replace("screenshot.py", ""))
-tempPath = path + "\\temp"
-outputPath = path + "\\output"
+tempPath = os.path.join(path, "temp")
+outputPath = os.path.join(path, "output")
 allowedResolutions = [
     [2560, 1440, [0, 50, 2560, 95]],
     [1920, 1080, [0, 25, 1920, 90]]
@@ -19,7 +19,7 @@ allowedResolutions = [
 def getScreenResolution():
     screenResolution = pyautogui.size()
     for i in range(len(allowedResolutions)):
-        if(allowedResolutions[i][0] == screenResolution[0] and allowedResolutions[i][1] == screenResolution[1]):
+        if (allowedResolutions[i][0] == screenResolution[0] and allowedResolutions[i][1] == screenResolution[1]):
             return i
     return -1
 
@@ -45,11 +45,11 @@ def main():
     screenResolution = getScreenResolution()
     os.makedirs(tempPath, exist_ok=True)
     os.makedirs(outputPath, exist_ok=True)
-    if(screenResolution != -1):
+    if (screenResolution != -1):
         print("Started Capture")
-        while(True):
-            screenShotPath = outputPath + \
-                "\\unsorted_" + str(currentId) + ".png"
+        while (True):
+            fileName = "unsorted_" + str(currentId) + ".png"
+            screenShotPath = os.path.join(outputPath, fileName)
             fullScreenCapture(screenShotPath, screenResolution)
             currentId += 1
             keyboard.press(Key.right)
